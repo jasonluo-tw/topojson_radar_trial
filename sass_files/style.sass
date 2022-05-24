@@ -1,0 +1,49 @@
+@mixin size($w, $h)
+    width: $w
+    height: $h
+    
+*
+    //border: 1px solid black
+
+html, body, #app 
+    +size(100%, 100%)
+    margin: 0
+
+.navi_bar
+    height: 7%
+    border-bottom: 1px solid gray
+    display: flex
+    justify-content: center
+    align-items: center
+
+.content
+    +size(100%, 93%)
+    display: flex
+    .left, .right
+        display: inline-block
+        margin: 0
+
+    .left
+        +size(55%, 100%)
+        display: flex
+        flex-direction: column
+        align-items: center
+        border-right: 1px solid gray
+        p
+            font-size: 20px
+        //justify-content: center
+    .right
+        display: flex
+        flex-direction: column
+        align-items: center
+        overflow: scroll
+        //justify-content: center
+        +size(45%, 100%)
+        .map-container
+            margin: 5px
+            #predict-map, #real-map
+                +size(30vw, 25vw)
+
+
+                 
+            

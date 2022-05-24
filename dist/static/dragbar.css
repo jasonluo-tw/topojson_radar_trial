@@ -1,0 +1,46 @@
+.seekbar {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  background: #bbb;
+}
+
+.seekbar .fill {
+  height: 10px;
+  background: #0af;
+  border-radius: 10px;
+}
+
+.seekbar .handle {
+  width: 7px;
+  height: 7px;
+  background: #0af;
+  border-radius: 10px;
+  transform: scale(2);
+  transition: all 0.1s ease-in-out;
+}
+
+.seekbar .handle:hover {
+  background: #33bbff;
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.dragbar .timetip {
+  opacity: 0;
+  position: absolute;
+  width: 5em;
+  top: -2em;
+  /*border: solid 1px black; */
+  padding: 3px;
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 0.4);
+  cursor: grab;
+}
+.dragbar {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 10px;
+}

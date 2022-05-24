@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Taiwan Radar Visual</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.css"/>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+    <link rel="stylesheet" type="text/css" href="static/table.css"/>
+    <link rel="stylesheet" type="text/css" href="static/dragbar.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <div class="navi_bar"><span>date:</span>
+        <input type="date"/><span>time: </span>
+        <input type="time" step="600"/>
+      </div>
+      <div class="content">
+        <div class="left">
+          <p>The first hour</p>
+          <div class="table-container">
+            <table id="time_series">
+              <thead> 
+                <tr>
+                  <td v-for="i in table_header">
+                    <div class="tstyle">{{i}}</div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody> 
+                <tr v-for="(row, cid) in table_content">
+                  <td v-for="(item, cid2) in row">
+                    <div class="tstyle">{{item}}</div>
+                    <!--.tstyle(v-bind:class="item.class") {{item.value}}-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The second hour</p>
+          <div class="table-container">
+            <table id="time_series">
+              <thead> 
+                <tr>
+                  <td v-for="i in table_header">
+                    <div class="tstyle">{{i}}</div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody> 
+                <tr v-for="(row, cid) in table_content">
+                  <td v-for="(item, cid2) in row">
+                    <div class="tstyle">{{item}}</div>
+                    <!--.tstyle(v-bind:class="item.class") {{item.value}}-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="right">
+          <div class="map-container">
+            <p>Prediction</p>
+            <div class="dragbar" id="predict">
+              <div class="seekbar"> 
+                <div class="fill"> </div>
+                <div class="handle"> </div>
+                <div class="timetip"> 
+                  <div class="box"> </div>
+                </div>
+              </div>
+            </div>
+            <div id="predict-map"></div>
+          </div>
+          <!--.map-container-->
+          <!--    p Ground-Truth -->
+          <!--    #real.dragbar-->
+          <!--        .seekbar -->
+          <!--            .fill -->
+          <!--            .handle -->
+          <!--            .timetip -->
+          <!--                .box-->
+          <!--    #real-map-->
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="src/dragbar.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/map_func.js"></script>
+  </body>
+</html>

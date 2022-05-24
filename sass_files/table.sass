@@ -1,0 +1,43 @@
+@mixin size($w, $h)
+    width: $w
+    height: $h
+
+.table-container
+    display: inline-block
+    border: 1px solid #929292
+    +size(50vw, 35vh)
+    overflow: scroll
+
+    table
+        border-collapse: collapse
+        table-layout: fixed
+        td
+            padding: 0
+            text-align: center
+
+thead tr td
+    position: sticky
+    background-color: #cbd0d0
+    top: 0px
+    font-weight: 700
+
+td:first-child 
+  position: sticky
+  background-color: white
+  left: 0px
+  font-weight: 700
+  font-size: 14
+
+thead td:nth-child(-n+1)
+    z-index: 2
+
+// unit block
+.tstyle
+    display: flex
+    align-items: center
+    justify-content: center
+    border-right: 1px solid gray
+    border-bottom: 1px solid gray
+    width: 80px
+    height: 30px
+    box-sizing: border-box

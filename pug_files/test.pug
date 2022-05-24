@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        title topojson_test
+        link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.css")
+        link(rel="stylesheet" type="text/css" href="./style.css")
+        link(rel="stylesheet" type="text/css" href="./table.css")
+        link(rel="stylesheet" type="text/css" href="./dragbar.css")
+    body
+        #app
+            .navi_bar
+                span date:
+                input(type='date')
+                span time: 
+                input(type='time' step="600")
+
+            .content
+                .left
+                    p The first hour
+                    .table-container
+                        table#time_series
+                            thead 
+                                tr
+                                    td(v-for="i in table_header")
+                                        .tstyle {{i}}
+                            tbody 
+                                tr(v-for="(row, cid) in table_content")
+                                    td(v-for="(item, cid2) in row")
+                                        .tstyle {{item}}
+                                        //.tstyle(v-bind:class="item.class") {{item.value}}
+
+                    p The second hour
+                    .table-container
+                        table#time_series
+                            thead 
+                                tr
+                                    td(v-for="i in table_header")
+                                        .tstyle {{i}}
+                            tbody 
+                                tr(v-for="(row, cid) in table_content")
+                                    td(v-for="(item, cid2) in row")
+                                        .tstyle {{item}}
+                                        //.tstyle(v-bind:class="item.class") {{item.value}}
+                .right
+                    .map-container
+                        p Prediction
+                        #predict.dragbar
+                            .seekbar 
+                                .fill 
+                                .handle 
+                                .timetip 
+                                    .box 
+                        #predict-map
+                    //.map-container
+                    //    p Ground-Truth 
+                    //    #real.dragbar
+                    //        .seekbar 
+                    //            .fill 
+                    //            .handle 
+                    //            .timetip 
+                    //                .box
+                    //    #real-map
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js")
+        script(src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js")
+        script(src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js")
+        script(src="src/dragbar-class.js")
+        script(src="src/main.js")
+        script(src="src/test.js")
